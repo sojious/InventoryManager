@@ -2,6 +2,13 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id ("kotlin-parcelize")
+    // id 'kotlin-kapt'
+
+
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
+    //id("org.jetbrains.kotlin.plugin.compose") version "2.0.21" // this version matches your Kotlin version
 }
 
 android {
@@ -56,6 +63,37 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation ("io.github.ehsannarmani:compose-charts:0.1.2")
+
+    // Networking (Retrofit, Gson, okHttp3)
+    implementation (libs.gson)
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.okhttp)
+    implementation (libs.logging.interceptor)
+
+
+    //Compose Chart
+    implementation (libs.compose.charts)
+
+    //Coil image loading library
+    implementation(libs.coil.compose)
+
+    //Hilt
+    implementation(libs.hilt.android.v2561)
+    ksp(libs.hilt.android.compiler.v2561)
+
+    //Room
+    implementation (libs.androidx.room.runtime)
+    implementation (libs.androidx.room.ktx)
+    ksp (libs.androidx.room.compiler)
+
+
+
+
+    //hilt viewmodel support for composables
+    implementation (libs.androidx.hilt.navigation.compose)
+
+    //ConstraintLayout
+    implementation (libs.androidx.constraintlayout.compose)
 
 }

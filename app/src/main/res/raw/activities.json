@@ -1,0 +1,20 @@
+[
+  {
+    "description": "Added 'Samsung Galaxy A14' to Electronics",
+    "id": 1,
+    "timestamp": "2025-04-23T10:15:00Z",
+    "type": "added"
+  },
+
+  {"id":2,
+    "type":"updated",
+    "description":"Updated price of Redmi Note 11 Pro",
+    "timestamp":"2025-04-23T10:15:00Z"
+  },
+
+  {"id":3,
+    "type":"deleted",
+    "description":"'HP Deskjet 2130' is now out of stock",
+    "timestamp":"2025-04-23T10:15:00Z"
+  }
+]

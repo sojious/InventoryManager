@@ -1,4 +1,4 @@
-package com.example.inventorymanager
+package com.example.inventorymanager.presentation.ui.Auth
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -14,7 +14,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -22,17 +21,21 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.inventorymanager.ui.theme.primaryBlue
+import androidx.navigation.NavHostController
+import com.example.inventorymanager.presentation.DashBoard
+import com.example.inventorymanager.presentation.Login
+import com.example.inventorymanager.presentation.theme.primaryBlue
+import com.example.inventorymanager.util.navigateSingleTopPopToInclusive
 
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier) {
+fun LoginScreen(modifier: Modifier = Modifier, navController: NavHostController) {
     val username = remember { mutableStateOf("") }
     val password = remember { mutableStateOf("") }
 
@@ -84,7 +87,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
 
             // Log In Button
             Button(
-                onClick = { /* handle login */ },
+                onClick = { navigateSingleTopPopToInclusive(navController, DashBoard.route, Login.route) },
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.White,
@@ -134,7 +137,7 @@ fun InputField(
 @Preview
 @Composable
 fun LoginScreenPreview() {
-    LoginScreen()
+    LoginScreen(navController = NavHostController(LocalContext.current))
 }
 @Preview
 @Composable
